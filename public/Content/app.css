@@ -1,0 +1,18 @@
+/* Jamaal Bernabe Student Number: 301061242 Date: October 3rd, 2021
+Custom CSS goes here */
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border;
+}
+
+body {
+  padding-top: 59px;
+  padding-bottom: 59px;
+}
+
+html,
+main,
+body {
+  height: 100%;
+}

@@ -1,0 +1,23 @@
+<!--Jamaal Bernabe Student Number: 301061242 Date: October 3rd, 2021-->
+<%- include  partials/header.ejs %>
+
+
+<%- include partials/main_nav.ejs %>
+
+
+<!-- EJS If statement to load correct partial Section-->
+    <% if (title == "Home") { %>
+      <% include partials/main_body.ejs %>
+      <% } else if (title == "About Me" ) { %>
+            <% include partials/about.ejs %>
+    <% } else if (title == "Products" ) { %>
+            <% include partials/products.ejs %>
+    <% } else if (title == "Services" ) { %>
+            <% include partials/services.ejs %>
+   <% } else { %>
+            
+   <% } %>
+
+<%- include partials/bottom_nav.ejs %>
+
+<%- include partials/footer.ejs %>
