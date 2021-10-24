@@ -1,10 +1,12 @@
 <%- include partials/header.ejs %> 
 <%- include partials/main_nav.ejs %>
 
-<div class="container">
-  <h1><%= messages %></h1>
-  <h2><%= error.status %></h2>
-  <pre><%= error.stack %></pre>
+<div class="container-fluid " >
+  <div class="container header text-center my-4">
+    <h1><%= messages %></h1>
+    <h2><%= error.status %></h2>
+  </div>
+  <pre "><%= error.stack %></pre>
 </div>
 
 <%- include partials/bottom_nav.ejs %> 

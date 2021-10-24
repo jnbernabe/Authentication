@@ -4,8 +4,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-10 offset-md-2">
-      <h1><%= title %></h1>
+    <div class="col-md-8 offset-md-2">
+      <h1 class="text-center lead header "><%= title %></h1>
       <form method="post" class="form">
         <div class="form-group">
           <label for="username">Username</label>
@@ -43,7 +43,7 @@
 
         <div class="form-group">
           <label for="phone">Phone Number</label>
-          <textarea
+          <input
             type="tel"
             class="form-control"
             id="phone"
@@ -51,17 +51,18 @@
             placeholder="Enter Phone Number"
             name="phone"
             required
-          ></textarea>
+          />
         </div>
 
+        <div class="container my-4">
+          <button class="btn btn-primary" type="Submit">
+            <i class="fas fa-edit"></i>Submit
+          </button>
 
-        <button class="btn btn-primary" type="Submit">
-          <i class="fas fa-edit"></i>Submit
-        </button>
-
-        <a href="/users" class="btn btn-warning"
-          ><i class="fas fa-undo"></i>Cancel</a
-        >
+          <a href="/user-list/" class="btn btn-warning"
+            ><i class="fas fa-undo"></i>Cancel</a
+          >
+        </div>
       </form>
     </div>
   </div>

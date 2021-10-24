@@ -5,17 +5,18 @@ let mongoose = require("mongoose");
 //reference to db Schema
 
 let userModel = require("../models/user");
-let person = userModel.user;
+let user = userModel.user;
 
 module.exports.displayUserList = (req, res, next) => {
-  person.find((err, userList) => {
+  user.find((err, userList) => {
     if (err) {
       return console.error(err);
     } else {
       res.render("user/list", {
         title: "Contact List",
         userList: userList,
-        username: req.user ? req.person.username : "",
+        name: req.user ? req.user.name : "",
+        username: req.user ? req.user.username : "",
       });
     }
   });
@@ -24,32 +25,33 @@ module.exports.displayUserList = (req, res, next) => {
 module.exports.displayAddUser = (req, res, next) => {
   res.render("user/add", {
     title: "Add User",
-    username: req.user ? req.person.username : "",
+    name: req.user ? req.user.name : "",
+    username: req.user ? req.user.username : "",
   });
 };
 
 module.exports.processAddUser = (req, res, next) => {
-  let newUser = User({
+  let newUser = user({
     //Error?
     name: req.body.name,
     username: req.body.username,
     email: req.body.email,
     phone: req.body.phone,
   });
-  Book.create(newUser, (err, Book) => {
+  user.create(newUser, (err, user) => {
     if (err) {
       console.log(err);
       res.end(err);
     } else {
-      //refresh book List
-      res.redirect("/users");
+      //refresh user List
+      res.redirect("/user-list");
     }
   });
 };
 
 module.exports.displayEditPage = (req, res, next) => {
   let id = req.params.id;
-  person.findById(id, (err, usertoEdit) => {
+  user.findById(id, (err, usertoEdit) => {
     if (err) {
       console.log(err);
       res.end(err);
@@ -57,8 +59,8 @@ module.exports.displayEditPage = (req, res, next) => {
       //shoe edit view
       res.render("user/edit", {
         title: "Edit User",
-        name: usertoEdit,
-        username: req.user ? req.person.username : "",
+        user: usertoEdit,
+        username: req.user ? req.user.username : "",
       });
     }
   });
@@ -67,7 +69,7 @@ module.exports.displayEditPage = (req, res, next) => {
 module.exports.processEditPage = (req, res, next) => {
   let id = req.params.id;
 
-  let updatedUser = person({
+  let updatedUser = user({
     _id: id,
     name: req.body.name,
     username: req.body.username,
@@ -75,13 +77,13 @@ module.exports.processEditPage = (req, res, next) => {
     phone: req.body.phone,
   });
 
-  person.updateOne({ _id: id }, updatedUser, (err) => {
+  user.updateOne({ _id: id }, updatedUser, (err) => {
     if (err) {
       console.log(err);
       res.end(err);
     } else {
       //refresh book List
-      res.redirect("/users");
+      res.redirect("/user-list");
     }
   });
 };
@@ -89,13 +91,13 @@ module.exports.processEditPage = (req, res, next) => {
 module.exports.performDelete = (req, res, next) => {
   let id = req.params.id;
 
-  person.remove({ _id: id }, (err) => {
+  user.remove({ _id: id }, (err) => {
     if (err) {
       console.log(err);
       res.end(err);
     } else {
       //refresh book List
-      res.redirect("/users");
+      res.redirect("/user-list");
     }
   });
 };

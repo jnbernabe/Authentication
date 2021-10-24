@@ -28,7 +28,7 @@ mongoDB.once("open", () => {
 });
 
 let indexRouter = require("../routes/index");
-let usersRouter = require("../routes/users");
+let usersRouter = require("../routes/user");
 
 let app = express();
 
@@ -75,7 +75,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/user-list", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -90,7 +90,12 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error", { title: "Error" });
+  res.render("error", {
+    title: "Error",
+    messages: err,
+    name: req.user ? req.user.name : "",
+    username: req.user ? req.user.username : "",
+  });
 });
 
 module.exports = app;

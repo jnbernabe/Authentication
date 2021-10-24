@@ -3,6 +3,7 @@ let router = express.Router();
 let mongoose = require("mongoose");
 let passport = require("passport");
 
+let DB = require("../config/db");
 //User module
 let userModel = require("../models/user");
 let user = userModel.user;
@@ -11,6 +12,7 @@ module.exports.displayHomePage = (req, res, next) => {
   res.render("index", {
     title: "Home",
     name: req.user ? req.user.name : "",
+    username: req.user ? req.user.username : "",
   });
 };
 
@@ -18,6 +20,7 @@ module.exports.displayAboutPage = (req, res, next) => {
   res.render("index", {
     title: "About",
     name: req.user ? req.user.name : "",
+    username: req.user ? req.user.username : "",
   });
 };
 
@@ -25,6 +28,7 @@ module.exports.displayProjectsPage = (req, res, next) => {
   res.render("index", {
     title: "Projects",
     name: req.user ? req.user.name : "",
+    username: req.user ? req.user.username : "",
   });
 };
 
@@ -32,6 +36,7 @@ module.exports.displayServicesPage = (req, res, next) => {
   res.render("index", {
     title: "Services",
     name: req.user ? req.user.name : "",
+    username: req.user ? req.user.username : "",
   });
 };
 
@@ -39,6 +44,7 @@ module.exports.displayContactPage = (req, res, next) => {
   res.render("contact", {
     title: "Contact",
     name: req.user ? req.user.name : "",
+    username: req.user ? req.user.username : "",
   });
 };
 
@@ -49,6 +55,7 @@ module.exports.displayLoginPage = (req, res, next) => {
       title: "Login",
       messages: req.flash("loginMessage"),
       name: req.user ? req.user.name : "",
+      username: req.user ? req.user.username : "",
     });
   } else {
     return res.redirect("/");
@@ -71,7 +78,7 @@ module.exports.processLoginPage = (req, res, next) => {
       if (err) {
         return next(err);
       }
-      return res.redirect("/users");
+      return res.redirect("/user-list");
     });
   })(req, res, next);
 };
@@ -82,6 +89,7 @@ module.exports.displayRegisterPage = (req, res, next) => {
       title: "Register",
       messages: req.flash("registerMessage"),
       name: req.user ? req.user.name : "",
+      username: req.user ? req.user.username : "",
     });
   } else {
     return res.redirect("/");
@@ -94,7 +102,7 @@ module.exports.processRegisterPage = (req, res, next) => {
     username: req.body.username,
     phone: req.body.phone,
     email: req.body.email,
-    name: req.user ? req.user.name : "",
+    name: req.body.name,
   });
 
   user.register(newUser, req.body.password, (err) => {
@@ -111,18 +119,11 @@ module.exports.processRegisterPage = (req, res, next) => {
         title: "Register",
         messages: req.flash("registerMessage"),
         name: req.user ? req.user.name : "",
+        username: req.user ? req.user.username : "",
       });
     } else {
-      // if no error exists, then registration is successful
-
-      // redirect the user and authenticate them
-
-      /* TODO - Getting Ready to convert to API
-            res.json({success: true, msg: 'User Registered Successfully!'});
-            */
-
       return passport.authenticate("local")(req, res, () => {
-        res.redirect("/users");
+        res.redirect("/user-list");
       });
     }
   });

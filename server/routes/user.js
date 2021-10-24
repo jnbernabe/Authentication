@@ -19,7 +19,7 @@ function requireAuth(req, res, next) {
 
 /* Get Route for Book List page - READ */
 
-router.get("/list", userController.displayUserList);
+router.get("/", userController.displayUserList);
 
 /* GET Route for DISPLAY Add page - Create */
 router.get("/add", requireAuth, userController.displayAddUser);
