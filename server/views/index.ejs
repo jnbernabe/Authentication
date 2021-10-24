@@ -8,14 +8,14 @@
 <!-- EJS If statement to load correct partial Section-->
     <% if (title == "Home") { %>
       <% include partials/main_body.ejs %>
-      <% } else if (title == "About Me" ) { %>
+      <% } else if (title == "About" ) { %>
             <% include partials/about.ejs %>
-    <% } else if (title == "Products" ) { %>
-            <% include partials/products.ejs %>
+    <% } else if (title == "Projects" ) { %>
+            <% include partials/projects.ejs %>
     <% } else if (title == "Services" ) { %>
             <% include partials/services.ejs %>
    <% } else { %>
-            
+          
    <% } %>
 
 <%- include partials/bottom_nav.ejs %>

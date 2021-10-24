@@ -1,34 +1,40 @@
 var express = require("express");
 var router = express.Router();
 
+let indexController = require("../controllers/index");
+
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Home" });
 });
 
 /* GET home page. */
-router.get("/home", function (req, res, next) {
-  res.render("index", { title: "Home" });
-});
+router.get("/home", indexController.displayHomePage);
 
 /* GET About Us page. */
-router.get("/about", function (req, res, next) {
-  res.render("index", { title: "About Me" });
-});
+router.get("/about", indexController.displayAboutPage);
 
 /* GET Products page. */
-router.get("/products", function (req, res, next) {
-  res.render("index", { title: "Products" });
-});
-
+router.get("/projects", indexController.displayProjectsPage);
 /* GET Service page. */
-router.get("/services", function (req, res, next) {
-  res.render("index", { title: "Services" });
-});
+router.get("/services", indexController.displayServicesPage);
 
 /* GET Contact Us page. */
-router.get("/contact", function (req, res, next) {
-  res.render("contact", { title: "Contact Me" });
-});
+router.get("/contact", indexController.displayContactPage);
+
+/* GET Route for Display Login - Create */
+router.get("/login", indexController.displayLoginPage);
+
+/* POST Route for PROCESS Login- Create*/
+router.post("/login", indexController.processLoginPage);
+
+/* GET Route for DISPLAY Register- Create */
+router.get("/register", indexController.displayRegisterPage);
+
+/* POST Route for PROCESS Register - Create*/
+router.post("/register", indexController.processRegisterPage);
+
+/* GET Route for PERFORM Logout - Create */
+router.get("/logout", indexController.performLogout);
 
 module.exports = router;

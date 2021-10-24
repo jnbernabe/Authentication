@@ -28,6 +28,7 @@
           id="validationCustom01"
           placeholder="First"
           required
+          name= body
         />
         <div class="valid-feedback">Looks good!</div>
       </div>
@@ -39,6 +40,7 @@
           id="validationCustom02"
           placeholder="Last"
           required
+          name= body
         />
         <div class="valid-feedback">Looks good!</div>
       </div>
@@ -52,6 +54,7 @@
             aria-describedby="inputGroupPrepend"
             placeholder="Youremail@email.com"
             required
+            name= body
           />
           <div class="invalid-feedback">Please give your email address.</div>
         </div>
@@ -64,12 +67,13 @@
           id="validationCustom03"
           placeholder="City"
           required
+          name= body
         />
         <div class="invalid-feedback">Please provide a valid city.</div>
       </div>
       <div class="col-md-3">
         <h4><label for="validationCustom04" class="form-label">Province</label></h4>
-        <select class="form-select" id="validationCustom04">
+        <select class="form-select" id="validationCustom04" name= body>
           <option selected disabled value="">Choose...</option>
           <option>ON</option>
           <option>QC</option>
@@ -91,9 +95,10 @@
         <h4><label for="validationCustom05" class="form-label">Postal code</label></h4>
         <input
           type="text"
+          name="body"
           class="form-control"
           id="validationCustom05"
-
+          name= body
           placeholder="A1A 1A1"
         />
         <div class="invalid-feedback">Please provide a valid Postal code.</div>
@@ -103,10 +108,10 @@
 
       <div>
         <h4><label for="validationCustom05" class="form-label">Message</label></h4>
-        <textarea  class="form-control" placeholder="Leave your message here"></textarea></div>
+        <textarea  name= body class="form-control" placeholder="Leave your message here"></textarea></div>
 
       <div class="container text-center d-block mx-auto">
-        <button class="btn btn-primary" type="submit">Submit form</button>
+        <button class="btn btn-primary" type="submit" value="Send" >Submit form</button>
         <button class="btn btn-primary " type="reset">Reset</button>
       </div>
     </form>

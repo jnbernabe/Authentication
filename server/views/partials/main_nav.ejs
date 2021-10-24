@@ -36,12 +36,12 @@
               <a class="nav-link " aria-current="page" href="/about"><i class="fas fa-question-circle"></i> About</a>
             </li>
 
-            <% if (title == "Products") { %>
+            <% if (title == "Projects") { %>
                 <li class = "nav-item active">
                     <%} else {%>
                 <li class= "nav-item">
             <% } %>
-              <a class="nav-link " aria-current="page" href="/products"><i class="fas fa-parachute-box"></i> Products</a>
+              <a class="nav-link " aria-current="page" href="/projects"><i class="fas fa-parachute-box"></i> Projects</a>
             </li>
 
             <% if (title == "Services") { %>
@@ -59,6 +59,24 @@
             <% } %>
               <a class="nav-link " aria-current="page" href="/contact"><i class="fas fa-id-card"></i> Contact Us</a>
             </li>
+
+            <% if (title == "Contact List") { %>
+        <li class="nav-item active">
+        <% } else  { %>
+        <li class="nav-item">
+        <% } %>
+          <a class="nav-link" href="/user-list"><i class="fas fa-book"></i> Contact List </a>
+        </li>
+
+            <%if(typeof name == "string" && name) { %>
+          <li class="navbar-text active">
+            <i class="fas fa-lg fa-user"></i>Welcome, <%= username %></li>
+          <li class="nav-item"><a href="/logout" class="nav-link">
+            <i class="fas fa-lg fa-sign-out-alt"></i>Logout</a></li>
+        <% } else {%>
+            <li class="nav-item"><a href="/login" class="nav-link">
+              <i class="fas fa-lg fa-sign-in-alt"></i>Login</a></li>
+          <% }%>
             
         </div>
       </div>

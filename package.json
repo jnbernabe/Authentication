@@ -39,7 +39,7 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jnbernabe/WebAppDevAssignment1.git"
+    "url": "git+https://github.com/jnbernabe/Authentication.git"
   },
   "keywords": [
     "COMP229"
@@ -47,7 +47,7 @@
   "author": "Jamaal Bernabe",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jnbernabe/WebAppDevAssignment1/issues"
+    "url": "https://github.com/jnbernabe/Authentication/issues"
   },
-  "homepage": "https://github.com/jnbernabe/WebAppDevAssignment1#readme"
+  "homepage": "https://github.com/jnbernabe/Authentication#readme"
 }
