@@ -2,34 +2,49 @@
 
 <!-- Add Page Content-->
 
-<div class="container">
+<main class="container-fluid bg-dark bg-gradient text-light">
   <div class="row">
-    <div class="col-md-10 offset-md-2">
-      <h1><%= title %></h1>
-      <hr>
-      <form method="post" class="form">
+    <div class="col-md-10 offset-md-1">
+      <div class="mt-4 p-5 bg-primary text-white rounded">
+        <h1 class="display-1 text-center"><%= title %></h1>
+        <hr />
+      </div>
+      <form method="post" class="form col-md-10 offset-md-1 my-2">
         <div class="form-group">
-         <label for="username">Username</label>
+          <label for="username">Username</label>
           <input
             type="text"
             class="form-control"
             id="username"
             name="username"
-            placeholder="Enter Username"
+            placeholder="Username"
             required
-            value = "<%= user.username %>"
+            value="<%= user.username %>"
           />
         </div>
         <div class="form-group">
-          <label for="name">Full Name</label>
+          <label for="name">First Name</label>
           <input
             type="text"
             class="form-control"
-            id="name"
-            name="name"
-            placeholder="Enter Full Name"
+            id="fname"
+            name="fname"
+            placeholder="First Name"
             required
-            value = "<%= user.name %>"
+            value="<%= user.fname %>"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="name">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lname"
+            name="lname"
+            placeholder="Last Name"
+            required
+            value="<%= user.lname %>"
           />
         </div>
         <div class="form-group">
@@ -39,35 +54,36 @@
             class="form-control"
             id="email"
             name="email"
-            placeholder="Enter Email Address"
+            placeholder="Email Address"
             required
-            value = "<%= user.email %>"
+            value="<%= user.email %>"
           />
         </div>
 
         <div class="form-group">
-         <label for="phone">Phone Number</label>
+          <label for="phone">Phone Number</label>
           <input
             type="tel"
             class="form-control"
             id="phone"
             name="phone"
-            placeholder="Enter Phone Number"
+            placeholder="Phone Number"
             name="phone"
             required
-           value = <%= user.phone %>
-           />
+            value="<%= user.phone %>"
+          />
         </div>
+        <div class="container btn-group my-3">
+          <button class="btn btn-primary" type="Submit">
+            <i class="fas fa-edit"></i>Confirm Edit
+          </button>
 
-        <button class="btn btn-primary" type="Submit">
-          <i class="fas fa-edit"></i>Confirm Edit
-        </button>
-
-        <a href="/user-list" class="btn btn-warning"
-          ><i class="fas fa-undo"></i>Cancel</a
-        >
+          <a href="/user-list" class="btn btn-warning"
+            ><i class="fas fa-undo"></i>Cancel</a
+          >
+        </div>
       </form>
     </div>
   </div>
-</div>
+</main>
 <%- include ../partials/bottom_nav.ejs %> <%- include ../partials/footer.ejs %>

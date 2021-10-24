@@ -11,11 +11,17 @@ let user = mongoose.Schema(
       trim: true,
       required: "username is required",
     },
-    name: {
+    fname: {
       type: String,
       default: "",
       trim: true,
-      required: "name is required",
+      required: "first name is required",
+    },
+    lname: {
+      type: String,
+      default: "",
+      trim: true,
+      required: "last name is required",
     },
     email: {
       type: String,

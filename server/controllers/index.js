@@ -11,7 +11,6 @@ let user = userModel.user;
 module.exports.displayHomePage = (req, res, next) => {
   res.render("index", {
     title: "Home",
-    name: req.user ? req.user.name : "",
     username: req.user ? req.user.username : "",
   });
 };
@@ -19,7 +18,6 @@ module.exports.displayHomePage = (req, res, next) => {
 module.exports.displayAboutPage = (req, res, next) => {
   res.render("index", {
     title: "About",
-    name: req.user ? req.user.name : "",
     username: req.user ? req.user.username : "",
   });
 };
@@ -27,7 +25,6 @@ module.exports.displayAboutPage = (req, res, next) => {
 module.exports.displayProjectsPage = (req, res, next) => {
   res.render("index", {
     title: "Projects",
-    name: req.user ? req.user.name : "",
     username: req.user ? req.user.username : "",
   });
 };
@@ -35,7 +32,6 @@ module.exports.displayProjectsPage = (req, res, next) => {
 module.exports.displayServicesPage = (req, res, next) => {
   res.render("index", {
     title: "Services",
-    name: req.user ? req.user.name : "",
     username: req.user ? req.user.username : "",
   });
 };
@@ -43,7 +39,6 @@ module.exports.displayServicesPage = (req, res, next) => {
 module.exports.displayContactPage = (req, res, next) => {
   res.render("contact", {
     title: "Contact",
-    name: req.user ? req.user.name : "",
     username: req.user ? req.user.username : "",
   });
 };
@@ -54,7 +49,6 @@ module.exports.displayLoginPage = (req, res, next) => {
     res.render("auth/login", {
       title: "Login",
       messages: req.flash("loginMessage"),
-      name: req.user ? req.user.name : "",
       username: req.user ? req.user.username : "",
     });
   } else {
@@ -88,7 +82,6 @@ module.exports.displayRegisterPage = (req, res, next) => {
     res.render("auth/register", {
       title: "Register",
       messages: req.flash("registerMessage"),
-      name: req.user ? req.user.name : "",
       username: req.user ? req.user.username : "",
     });
   } else {
@@ -102,7 +95,8 @@ module.exports.processRegisterPage = (req, res, next) => {
     username: req.body.username,
     phone: req.body.phone,
     email: req.body.email,
-    name: req.body.name,
+    fname: req.body.fname,
+    lname: req.body.lname,
   });
 
   user.register(newUser, req.body.password, (err) => {
@@ -118,7 +112,6 @@ module.exports.processRegisterPage = (req, res, next) => {
       return res.render("auth/register", {
         title: "Register",
         messages: req.flash("registerMessage"),
-        name: req.user ? req.user.name : "",
         username: req.user ? req.user.username : "",
       });
     } else {

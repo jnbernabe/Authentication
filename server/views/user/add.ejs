@@ -2,11 +2,14 @@
 
 <!-- Add Page Content-->
 
-<div class="container">
+<main class="container-fluid bg-dark bg-gradient text-white">
   <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <h1 class="text-center lead header "><%= title %></h1>
-      <form method="post" class="form">
+    <div class="offset-md-1 col-md-10">
+      <div class="mt-4 p-5 bg-primary text-white rounded">
+        <h1 class="display-1 text-center"><%= title %></h1>
+        <hr class="bg-dark" />
+      </div>
+      <form method="post" class="form mt-3 offset-md-1 col-md-10">
         <div class="form-group">
           <label for="username">Username</label>
           <input
@@ -14,18 +17,30 @@
             class="form-control"
             id="username"
             name="username"
-            placeholder="Enter Username"
+            placeholder="Username"
             required
           />
         </div>
         <div class="form-group">
-          <label for="name">Full Name</label>
+          <label for="name">First Name</label>
           <input
             type="text"
             class="form-control"
-            id="name"
-            name="name"
-            placeholder="Enter Full Name"
+            id="fname"
+            name="fname"
+            placeholder="First Name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="name">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lname"
+            name="lname"
+            placeholder="Last Name"
             required
           />
         </div>
@@ -36,7 +51,7 @@
             class="form-control"
             id="email"
             name="email"
-            placeholder="Enter Email Address"
+            placeholder="Email Address"
             required
           />
         </div>
@@ -48,13 +63,13 @@
             class="form-control"
             id="phone"
             name="phone"
-            placeholder="Enter Phone Number"
+            placeholder="Phone Number"
             name="phone"
             required
           />
         </div>
 
-        <div class="container my-4">
+        <div class="container my-4 btn-group">
           <button class="btn btn-primary" type="Submit">
             <i class="fas fa-edit"></i>Submit
           </button>
@@ -66,5 +81,5 @@
       </form>
     </div>
   </div>
-</div>
+</main>
 <%- include ../partials/bottom_nav.ejs %> <%- include ../partials/footer.ejs %>

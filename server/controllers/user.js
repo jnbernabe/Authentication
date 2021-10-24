@@ -14,8 +14,7 @@ module.exports.displayUserList = (req, res, next) => {
     } else {
       res.render("user/list", {
         title: "Contact List",
-        userList: userList,
-        name: req.user ? req.user.name : "",
+        userList: userList.sort(user.fname),
         username: req.user ? req.user.username : "",
       });
     }
@@ -25,7 +24,6 @@ module.exports.displayUserList = (req, res, next) => {
 module.exports.displayAddUser = (req, res, next) => {
   res.render("user/add", {
     title: "Add User",
-    name: req.user ? req.user.name : "",
     username: req.user ? req.user.username : "",
   });
 };
@@ -33,7 +31,8 @@ module.exports.displayAddUser = (req, res, next) => {
 module.exports.processAddUser = (req, res, next) => {
   let newUser = user({
     //Error?
-    name: req.body.name,
+    fname: req.body.fname,
+    lname: req.body.lname,
     username: req.body.username,
     email: req.body.email,
     phone: req.body.phone,
@@ -71,7 +70,8 @@ module.exports.processEditPage = (req, res, next) => {
 
   let updatedUser = user({
     _id: id,
-    name: req.body.name,
+    lname: req.body.lname,
+    fname: req.body.fname,
     username: req.body.username,
     email: req.body.email,
     phone: req.body.phone,

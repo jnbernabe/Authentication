@@ -1,10 +1,19 @@
 <!--Jamaal Bernabe Student Number: 301061242 Date: October 3rd, 2021-->
 <!-- Main Navigation -->
     <nav class="nav navbar navbar-expand-lg fixed-top  navbar-dark bg-dark">
+
+          
+
+
       <div class="container-fluid">
-        <a class="navbar-brand text-primary ms-2" href="/"><img src="Assets/images/Logo.png"  style="height:30px">
+        <a class="navbar-brand text-primary m-1" href="/"><img src="/Assets/images/Logo.png"  style="height:30px">
         </a>
               
+          <div class="">
+            <span class="navbar-text"><%= title %></span>
+          </div>
+
+
         <button
           class="navbar-toggler"
           type="button"
@@ -16,6 +25,13 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
+
+
+        
+          
+      
+
 
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
           <ul class="navbar-nav  ms-auto mb-2 mb-lg-0 text-light">
@@ -67,6 +83,8 @@
         <% } %>
           <a class="nav-link" href="/user-list"><i class="fas fa-book"></i> Contact List </a>
         </li>
+
+          
 
         <%if(typeof username == "string" && username) { %>
                 <li class="navbar-text active">

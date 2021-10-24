@@ -1,4 +1,5 @@
 /* Jamaal Bernabe Student Number: 301061242 Date: October 3rd, 2021
+CSS file app.css
 Custom CSS goes here */
 :root {
   margin: 0;
@@ -15,4 +16,26 @@ html,
 main,
 body {
   height: 100%;
+}
+
+/* Sortable tables */
+table.sortable thead {
+  background-color: rgb(111, 178, 255);
+  color: #252525;
+  font-weight: bold;
+  cursor: default;
+}
+
+.sortable th:hover {
+  background-color: rgb(101, 101, 189);
+}
+
+table.sortable
+  th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
+  content: " \25B4\25BE";
+}
+
+label {
+  font-weight: bold;
+  font-size: 25;
 }

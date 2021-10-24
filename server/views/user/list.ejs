@@ -2,45 +2,56 @@
 <%- include ../partials/main_nav.ejs %>
 
 <!-- Main Content -->
-<main class="container">
+<main class="container-fluid bg-dark bg-gradient ">
   <div class="row">
-    <div class="offset-md-1 col-md-11">
-      <h1 class="page-header text-center"><%= title %></h1>
-      <hr>
+    <div class="offset-md-1 col-md-10">
+      <div class="my-4 p-5 bg-primary text-white rounded">
+        <h1 class="display-1 text-center"><%= title %></h1>
+        <hr>
+        <p>Please leave your contact information below.
+          Register and Login to be able to edit and delete your contact information.</p>
+        </p>
+
+      </div>
+        
+      
        <%if(typeof username == "string" && username) { %>
-      <a href="/user-list/add"  class="btn btn-primary btn " role="button"> <i class="fas fa-plus-circle"></i> Add Contact</a>
-      <br>
+        <div class="container my-2">
+          <a href="/user-list/add"  class="btn btn-primary btn" role="button"> <i class="fas fa-plus-circle"></i> Add Contact</a>
+        </div>
       <% }%>
-      <br>
-      <table class="table table-bordered taple-stripped table-hover">
+      
+      <table class="table table-bordered taple-stripped table-hover sortable bg-white bg-gradient">
         <!-- Header Row -->
         <tr>
-          <th class="text-center col-1">Username</th>
-          <th class="text-center col-1">Name</th>
-          <th class="text-center col-1">Email</th>
-         
-          <th class="text-center col-1">Phone</th>
+          <th class="text-center col">Last Name</th>
+          <th class="text-center col">First Name</th>
+          
+          <th class="text-center col">Email</th>
+          <th class="text-center col">Phone</th>
          <%if(typeof username == "string" && username) { %>
-          <th class="text-center col-1">Edit/Delete</th>
+          <th class="text-center col">Edit/Delete</th>
          
           <% }%>
         </tr>
 
         <!-- Repeatable Template Row -->
+        
         <% for (let count = 0; count <userList.length; count++) { %>
             <tr class="text-center">
-                <td class="text-center col-1"><%= userList[count].username %></td>
-                <td class="text-center col-1"><%= userList[count].name  %></td>
-                <td class="text-center col-1"><%= userList[count].email %></td>
+                <td class="text-center col"><%= userList[count].lname  %></td>
+                <td class="text-center col"><%= userList[count].fname  %></td>
+                <td class="text-center col"><%= userList[count].email %></td>
                 <td class="col-2"><%= userList[count].phone  %></td>
-                
                 <%if(typeof username == "string" && username) { %>
-                <td class="text-center col-1">
-                  <a href="/user-list/edit/<%= userList[count]._id  %>" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i> Edit</a>
-                  <br> <br>
-                   <a href="/user-list/delete/<%= userList[count]._id  %>" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</a>
-                </td>
-        
+                
+                
+                  <td class="text-center col btn-group">
+                    <a href="/user-list/edit/<%= userList[count]._id  %>" class="btn  btn-primary btn-sm"><i class="fas fa-pencil-alt"></i> Edit</a>
+                   
+                    <a href="/user-list/delete/<%= userList[count]._id  %>" class="btn  btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</a>
+                  </td>
+                 
                 <% }%>
             </tr>
             <% } %> 

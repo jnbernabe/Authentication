@@ -18,7 +18,10 @@ let DB = require("./db");
 
 //point mongoose to DB URI
 
-mongoose.connect(DB.URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(DB.URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 let mongoDB = mongoose.connection;
 
@@ -93,7 +96,6 @@ app.use(function (err, req, res, next) {
   res.render("error", {
     title: "Error",
     messages: err,
-    name: req.user ? req.user.name : "",
     username: req.user ? req.user.username : "",
   });
 });
